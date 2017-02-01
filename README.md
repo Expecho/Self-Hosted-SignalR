@@ -1,4 +1,2 @@
-# Experimental
-Repository for demo code and trying out stuff
-
-See the README in the project folders for more information specific for that project.
+# Self Hosting SignalR
+Demo of hosting SignalR & receiving SignalR messages using Console Applications
