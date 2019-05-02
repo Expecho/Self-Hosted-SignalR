@@ -2,7 +2,7 @@
 Demo of hosting SignalR & receiving SignalR messages using Console Applications
 
 ## Getting started
-Start both projects, see [How to: Set multiple startup projects](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-set-multiple-startup-projects?view=vs-2019) and wait for both of them to be started:
+Start both projects, see [How to: Set multiple startup projects](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-set-multiple-startup-projects?view=vs-2019), and wait for both of them to be started:
 
 ### Wait for startup of server and client
 
