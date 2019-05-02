@@ -8,18 +8,18 @@ namespace SignalR.Server
     {
         public void addMessage(string name, string message)
         {
-            Console.WriteLine("Server send: " + name + " - " + message);
+            Console.WriteLine($"Server send: {name} - {message}");
             Clients.All.addMessage(name, message);
         }
 
         public override Task OnConnected()
         {
-            Console.WriteLine("Client connected: " + Context.ConnectionId);
+            Console.WriteLine($"Client connected: {Context.ConnectionId}");
             return base.OnConnected();
         }
         public override Task OnDisconnected(bool stopCalled)
         {
-            Console.WriteLine("Client disconnected: " + Context.ConnectionId);
+            Console.WriteLine($"Client disconnected: {Context.ConnectionId}");
             return base.OnDisconnected(stopCalled);
         }
     }

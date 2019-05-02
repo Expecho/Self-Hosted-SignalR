@@ -16,11 +16,11 @@ namespace SignalR.Client
 
             using (WebApp.Start(Url, Configuration))
             {
-                Console.WriteLine("Server running on {0}", Url);
+                Console.WriteLine($"Server running on {Url}");
                 Console.WriteLine("Press any key to send a message to connected clients");
                 Console.ReadKey();
 
-                // Send message to all connected clientd
+                // Send message to all connected clients
                 var context = GlobalHost.ConnectionManager.GetHubContext<MyHub>();
                 context.Clients.All.addMessage("Server", "Hello from server");
            
