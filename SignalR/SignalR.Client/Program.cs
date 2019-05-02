@@ -13,17 +13,21 @@ namespace SignalR.Client
             using (var connection = new HubConnection("http://localhost:9080"))
             {
                 var hubProxy = connection.CreateHubProxy("MyHub");
+
+                // Specify action to execute when a message is received
                 hubProxy.On<string, string>("addMessage", (name, message) => Console.WriteLine(message));
 
-                connection.Start(new LongPollingTransport()).Wait();
+                // Start listening
+                connection.Start(new LongPollingTransport()).GetAwaiter().GetResult();
 
                 Console.WriteLine("Client connected. Press any key to send a message");
-                Console.ReadLine();
+                Console.ReadKey();
 
+                // Send a message to server / other clients
                 hubProxy.Invoke("addMessage", "Guest", "Hello World").Wait();
 
                 Console.WriteLine("Message send. Press any key to exit");
-                Console.ReadLine();
+                Console.ReadKey();
             }
         }
     }

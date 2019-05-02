@@ -1,6 +1,8 @@
 ﻿using System;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Hosting;
 using Owin;
+using SignalR.Server;
 
 namespace SignalR.Client
 {
@@ -15,6 +17,13 @@ namespace SignalR.Client
             using (WebApp.Start(Url, Configuration))
             {
                 Console.WriteLine("Server running on {0}", Url);
+                Console.WriteLine("Press any key to send a message to connected clients");
+                Console.ReadKey();
+
+                // Send message to all connected clientd
+                var context = GlobalHost.ConnectionManager.GetHubContext<MyHub>();
+                context.Clients.All.addMessage("Server", "Hello from server");
+           
                 Console.ReadLine();
             }
         }
